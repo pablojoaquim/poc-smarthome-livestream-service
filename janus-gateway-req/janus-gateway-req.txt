@@ -1,0 +1,31 @@
+The following instructions are necessary to prepare the libraries needed by Janus.
+Instead of cloning this projects each time the docker is built, I've included them.
+Just for reference I leave here the full instructions.
+
+RUN cd ~ \
+    && git clone https://github.com/cisco/libsrtp.git \
+    && cd libsrtp \
+    && git checkout v2.1.0 \
+    && ./configure --prefix=/usr --enable-openssl \
+    && make shared_library \
+    && make install
+RUN cd ~ \
+    && git clone https://github.com/sctplab/usrsctp \
+    && cd usrsctp \
+    && ./bootstrap \
+    && ./configure --prefix=/usr \
+    && make \
+    && make install
+RUN cd ~ \
+    && git clone https://gitlab.freedesktop.org/libnice/libnice \
+    && cd libnice \
+    && meson --prefix=/usr build && ninja -C build && sudo ninja -C build install
+RUN cd ~ \
+    && git clone https://github.com/warmcat/libwebsockets.git \
+    && cd libwebsockets \
+    && git checkout v2.1.0 \
+    && mkdir build \
+    && cd build \
+    && cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr .. \
+    && make \
+    && make install
