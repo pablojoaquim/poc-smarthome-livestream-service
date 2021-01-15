@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Update the WebRTC server ip address
-(envsubst < /opt/janus/etc/janus/janus.jcfg) > /dev/null
+(envsubst < /opt/janus/etc/janus/janus.jcfg) > /opt/janus/etc/janus/janus_tmp.jcfg
+mv /opt/janus/etc/janus/janus_tmp.jcfg /opt/janus/etc/janus/janus.jcfg
 
 # Starting the nginx server (necessary for the HLS stream)
 service nginx start
