@@ -11,13 +11,13 @@ Build the docker provided. Is recommended to use a version in major.minor form->
 
 > docker build -t livestream:x.y .
 
-> sudo docker run -it -p <RTSP_PORT>:8555 -p <HLS_PORT>:80 -p <WEBRTC_PORT>:8088 livestream:x.y
+> sudo docker run -it -p <RTSP_PORT>:8555 -p <HLS_PORT>:80 -p <WEBRTC_PORT>:8088 -e WEBRTC_SERVER_IP_ADDRESS=<webrtc_server_ip_address> livestream:x.y
 
 example:
 
 > docker build -t livestream:1.1 .
 
-> sudo docker run -it -p 50055:8555 -p 81:80 -p 8088:8088 livestream:1.1
+> sudo docker run -it -p 50055:8555 -p 81:80 -p 8088:8088 -e WEBRTC_SERVER_IP_ADDRESS=200.32.54.152 livestream:1.1
 
 ## Playing the RTSP stream
 Open the VLC and play the stream from the following URL:

@@ -11,24 +11,26 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         nginx \
         build-essential \
         cmake \
-    libmicrohttpd-dev \
-    libjansson-dev \
-    libssl-dev \
-    libini-config-dev \
-    libconfig-dev \
-    libsofia-sip-ua-dev \
-    libglib2.0-dev \
-    libopus-dev \
-    libcurl4-openssl-dev \
-    liblua5.3-dev \
-    libogg-dev \
-    libini-config-dev \
-    libcollection-dev \
-    pkg-config \
-    gengetopt \
-    libtool \
-    autotools-dev \
-    automake    
+        sed \
+        gettext \
+	libmicrohttpd-dev \
+        libjansson-dev \
+        libssl-dev \
+        libini-config-dev \
+        libconfig-dev \
+        libsofia-sip-ua-dev \
+        libglib2.0-dev \
+        libopus-dev \
+        libcurl4-openssl-dev \
+        liblua5.3-dev \
+        libogg-dev \
+        libini-config-dev \
+        libcollection-dev \
+        pkg-config \
+        gengetopt \
+        libtool \
+        autotools-dev \
+        automake
 
 # Install the necessary for compiling Janus
 RUN apt install -y python3-pip
